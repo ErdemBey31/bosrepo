@@ -1,0 +1,18 @@
+# koyeb.yml
+build:
+  - name: build
+    image: python:3.9
+    commands:
+      - pip install -r notebook
+
+run:
+  - name: notebook
+    image: python:3.9
+    command: |
+      jupyter notebook \
+        --ip=0.0.0.0 \
+        --port=8888 \
+        --NotebookApp.password='sha1:e4d09c9ffa22:e4d09c9ffa22' \
+        --allow-root
+    ports:
+      - 443
