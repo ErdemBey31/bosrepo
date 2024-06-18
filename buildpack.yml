@@ -1,0 +1,11 @@
+# buildpack.yml
+version: 1
+language: python
+python:
+  version: 3.9.13
+build:
+  commands:
+    - pip install notebook
+    - echo -e "e\ne" | jupyter notebook password 
+run:
+  command: jupyter notebook --ip=0.0.0.0 --port=443 --allow-root
